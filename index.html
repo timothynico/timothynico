@@ -1,204 +1,635 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timothy Nico's Portfolio website</title>
+    <title>Timothy Nico - AI & Web Enthusiast</title>
+    <meta name="description" content="Timothy Nico's Portfolio - AI & Web Enthusiast specializing in machine learning, web development, and ocean-inspired technology solutions.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            height: 600vh; /* Untuk menambah panjang halaman */
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ocean-deep': '#0B1426',
+                        'ocean-darker': '#162136',
+                        'ocean-dark': '#1E3A5F',
+                        'ocean-medium': '#2E5984',
+                        'ocean-light': '#4A90E2',
+                        'ocean-aqua': '#00CED1',
+                        'ocean-foam': '#F0F8FF',
+                        'ocean-current': '#20B2AA'
+                    },
+                    keyframes: {
+                        sparkle: {
+                            '0%, 100%': { 
+                                opacity: '0.3', 
+                                transform: 'scale(0.5) rotate(0deg)'
+                            },
+                            '50%': { 
+                                opacity: '1', 
+                                transform: 'scale(1.5) rotate(180deg)'
+                            }
+                        },
+                        'gradient-shift': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    },
+                    animation: {
+                        sparkle: 'sparkle 3s ease-in-out infinite',
+                        'gradient-shift': 'gradient-shift 3s ease-in-out infinite',
+                        float: 'float 6s ease-in-out infinite'
+                    }
+                }
+            }
         }
-
-        canvas {
-            position: fixed; /* Tetap di tempat saat scroll */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Di belakang konten */
-        }
-
-        .typed-cursor{
-            font-size: 3rem;
-            color: white;
-        }
-    </style>
+    </script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gradient-to-b from-sky-400 via-orange-500 to-indigo-900">
-    <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-gray-800 bg-opacity-20 text-white shadow-md z-10 pr-2 pl-2 md:pb-4 md:pt-2">
-        <div class="container mx-auto flex justify-between items-center px-4 py-2">
-            <a href="#" class="text-xl font-bold">Timothy Nico</a>
-            <ul class="flex space-x-4">
-                <li><a href="#home" class="hover:underline">Home</a></li>
-                <li><a href="#about" class="hover:underline">Education</a></li>
-                <li><a href="#skills" class="hover:underline">Skills</a></li>
-                <li><a href="#project" class="hover:underline">Projects</a></li>
-                <li><a href="#award" class="hover:underline">Awards & Achievements</a></li>
-                <li><a href="#award" class="hover:underline">Contact</a></li>
-            </ul>
+<body class="font-sans text-ocean-foam min-h-screen overflow-x-hidden relative">
+    <!-- Sparkles Background -->
+    <div class="fixed inset-0 pointer-events-none z-[1]" id="sparkles"></div>
+
+    <!-- Orca Background -->
+    <div class="orca-container">
+        <div class="orca" id="orca">
+            <img src="public/images/Orca.png" alt="Orca Whales">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-ocean-deep/90 backdrop-blur-xl border-b border-ocean-light/30 shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-gradient animate-pulse">Timothy Nico</div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#education" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Education
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#skills" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Skills
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#experience" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Experience
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#achievements" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Achievements
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#projects" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Projects
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                    <li><a href="#contact" class="text-ocean-foam hover:text-ocean-aqua transition-all duration-300 hover:scale-110 relative group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-ocean-aqua transition-all duration-300 group-hover:w-full"></span>
+                    </a></li>
+                </ul>
+                <div class="md:hidden flex flex-col cursor-pointer gap-1 hamburger" id="hamburger">
+                    <span class="w-6 h-0.5 bg-ocean-foam"></span>
+                    <span class="w-6 h-0.5 bg-ocean-foam"></span>
+                    <span class="w-6 h-0.5 bg-ocean-foam"></span>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Canvas for Three.js -->
-    <canvas id="three-canvas"></canvas>
+    <!-- Mobile Navigation -->
+    <div class="fixed top-16 -left-full w-full h-[calc(100vh-4rem)] bg-ocean-deep/95 backdrop-blur-xl z-40 mobile-nav" id="mobileNav">
+        <ul class="list-none p-8 flex flex-col gap-6">
+            <li><a href="#home" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Home</a></li>
+            <li><a href="#education" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Education</a></li>
+            <li><a href="#skills" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Skills</a></li>
+            <li><a href="#experience" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Experience</a></li>
+            <li><a href="#achievements" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Achievements</a></li>
+            <li><a href="#projects" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Projects</a></li>
+            <li><a href="#contact" onclick="closeMobileNav()" class="text-ocean-foam text-xl py-2 border-b border-ocean-light/30 transition-colors hover:text-ocean-aqua">Contact</a></li>
+        </ul>
+    </div>
 
-    <!-- Content -->
-    <section id="home" class="pt-32">
-        <div class="p-4 flex flex-col-reverse md:flex-row items-center justify-center">
-            <!-- Left side (Text) -->
-            <div class="text-center ml-4 mr-4 md:pr-12">
-                <!-- text -->
-                <h1 class="text-4xl mt-10 text-sky-900 font-bold">Hi, I'm</h1>
-                <span class="typed text-4xl text-white font-bold"></span>
-
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-                <script>
-                const options = {
-                    strings: ['Timothy Nico', 'an AI Enthusiast', 'a Web Developer'],
-                    typeSpeed: 40,
-                    backSpeed: 40,
-                    backDelay: 2000,
-                    loop: true
-                };
-                
-                // We'll bind the typing animation to the .typed class.
-                let typed = new Typed('.typed', options);
-                </script>
-                <p class="max-w-lg mx-auto mt-4 text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <!-- text end -->
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative z-20 px-6">
+        <div class="text-center text-overlay">
+            <div class="w-48 h-48 mx-auto mb-8 rounded-full bg-gradient-to-br from-ocean-aqua via-ocean-current to-ocean-light p-1 animate-float hover:scale-110 transition-transform duration-500 cursor-pointer shadow-2xl">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-ocean-darker to-ocean-deep flex items-center justify-center border-2 border-ocean-aqua/30">
+                    <div class="w-40 h-40 rounded-full bg-gradient-to-br from-ocean-medium to-ocean-dark flex items-center justify-center text-6xl text-ocean-foam font-bold shadow-inner">
+                        TN
+                    </div>
+                </div>
             </div>
-    
-            <!-- Right side (Image) -->
-            <img src="Assets/foto.jpeg" alt="profile picture" class="w-40 h-40 md:w-96 md:h-96 object-cover rounded-full mt-2 md:mt-0 border-4 border-white">
-
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-pulse">
+                Hi, I'm Timothy Nico
+            </h1>
+            <p class="text-xl md:text-2xl text-ocean-foam/90 mb-8">
+                I'm an AI & Web Enthusiast
+            </p>
+            <div class="flex justify-center space-x-4 flex-wrap gap-4">
+                <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-ocean-aqua to-ocean-current text-ocean-deep font-semibold rounded-lg hover:from-ocean-current hover:to-ocean-aqua transition-all duration-300 hover:scale-105 transform shadow-lg">
+                    Get In Touch
+                </a>
+                <a href="#" onclick="downloadResume()" class="px-8 py-3 border-2 border-ocean-aqua text-ocean-aqua hover:bg-gradient-to-r hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 rounded-lg hover:scale-105 transform shadow-lg">
+                    Download Resume
+                </a>
+            </div>
         </div>
     </section>
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@latest/examples/js/loaders/GLTFLoader.js"></script>
+    <!-- Education Section -->
+    <section id="education" class="py-20 px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-overlay mb-16">
+                <h2 class="text-4xl font-bold text-center text-gradient">Education</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="ocean-card p-8 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-medium to-ocean-light rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                            <span class="text-3xl">🎓</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Master of Computer Science</h3>
+                            <p class="text-ocean-aqua font-medium mb-2">University of Technology</p>
+                            <p class="text-ocean-foam/70 group-hover:text-ocean-foam/90 transition-colors">Specialized in Artificial Intelligence and Machine Learning with focus on deep learning applications.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ocean-card p-8 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-medium to-ocean-current rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                            <span class="text-3xl">📚</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Bachelor of Software Engineering</h3>
+                            <p class="text-ocean-aqua font-medium mb-2">Tech Institute</p>
+                            <p class="text-ocean-foam/70 group-hover:text-ocean-foam/90 transition-colors">Foundation in software development, web technologies, and database systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-overlay mb-16">
+                <h2 class="text-4xl font-bold text-center text-gradient">Skills</h2>
+            </div>
+            
+            <div class="mb-16">
+                <div class="text-overlay mb-8">
+                    <h3 class="text-2xl font-semibold text-ocean-foam text-center">Technical Skills</h3>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="ocean-card p-6 rounded-xl text-center hover:scale-110 hover:-translate-y-3 transition-all duration-500 group cursor-pointer">
+                        <span class="text-5xl mb-4 block group-hover:scale-125 transition-all duration-300 drop-shadow-lg">💻</span>
+                        <p class="text-ocean-foam font-medium group-hover:text-ocean-aqua transition-colors">Laravel</p>
+                    </div>
+                    <div class="ocean-card p-6 rounded-xl text-center hover:scale-110 hover:-translate-y-3 transition-all duration-500 group cursor-pointer">
+                        <span class="text-5xl mb-4 block group-hover:scale-125 transition-all duration-300 drop-shadow-lg">📊</span>
+                        <p class="text-ocean-foam font-medium group-hover:text-ocean-aqua transition-colors">Data Analytics</p>
+                    </div>
+                    <div class="ocean-card p-6 rounded-xl text-center hover:scale-110 hover:-translate-y-3 transition-all duration-500 group cursor-pointer">
+                        <span class="text-5xl mb-4 block group-hover:scale-125 transition-all duration-300 drop-shadow-lg">🧠</span>
+                        <p class="text-ocean-foam font-medium group-hover:text-ocean-aqua transition-colors">Artificial Intelligence</p>
+                    </div>
+                    <div class="ocean-card p-6 rounded-xl text-center hover:scale-110 hover:-translate-y-3 transition-all duration-500 group cursor-pointer">
+                        <span class="text-5xl mb-4 block group-hover:scale-125 transition-all duration-300 drop-shadow-lg">🌐</span>
+                        <p class="text-ocean-foam font-medium group-hover:text-ocean-aqua transition-colors">Web Development</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="text-overlay mb-8">
+                    <h3 class="text-2xl font-semibold text-ocean-foam text-center">Soft Skills & Languages</h3>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="ocean-card p-6 rounded-xl hover:scale-105 transition-all duration-500 group cursor-pointer">
+                            <h4 class="text-lg font-semibold text-ocean-aqua mb-4 group-hover:text-ocean-current transition-colors">Soft Skills</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded-full text-sm text-ocean-foam hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Leadership</span>
+                                <span class="px-3 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded-full text-sm text-ocean-foam hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Communication</span>
+                                <span class="px-3 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded-full text-sm text-ocean-foam hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Problem Solving</span>
+                                <span class="px-3 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded-full text-sm text-ocean-foam hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Team Collaboration</span>
+                            </div>
+                        </div>
+                        <div class="ocean-card p-6 rounded-xl hover:scale-105 transition-all duration-500 group cursor-pointer">
+                            <h4 class="text-lg font-semibold text-ocean-aqua mb-4 group-hover:text-ocean-current transition-colors">Languages</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">🇺🇸</span>
+                                    <span class="text-ocean-foam group-hover:text-ocean-aqua transition-colors">English - Native</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">🇪🇸</span>
+                                    <span class="text-ocean-foam group-hover:text-ocean-aqua transition-colors">Spanish - Advanced</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-overlay mb-16">
+                <h2 class="text-4xl font-bold text-center text-gradient">Experience</h2>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-ocean-aqua via-ocean-current to-ocean-light"></div>
+                    
+                    <div class="space-y-12">
+                        <div class="relative flex items-start space-x-8 group">
+                            <div class="w-16 h-16 bg-gradient-to-br from-ocean-aqua to-ocean-current rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                                <span class="text-2xl">⚡</span>
+                            </div>
+                            <div class="ocean-card p-6 rounded-xl flex-1 hover:scale-105 hover:-translate-y-1 transition-all duration-500 cursor-pointer">
+                                <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Senior AI Developer</h3>
+                                <p class="text-ocean-aqua font-medium mb-2">Tech Solutions Inc.</p>
+                                <p class="text-ocean-foam/70 mb-4 group-hover:text-ocean-foam/90 transition-colors">Led development of machine learning models and AI-powered web applications. Collaborated with cross-functional teams to deliver innovative solutions.</p>
+                                <div class="flex items-center text-ocean-foam/50 text-sm">
+                                    <span class="mr-2">📍</span>
+                                    Remote • 2022 - Present
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-start space-x-8 group">
+                            <div class="w-16 h-16 bg-gradient-to-br from-ocean-current to-ocean-light rounded-full flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300 shadow-xl">
+                                <span class="text-2xl">💻</span>
+                            </div>
+                            <div class="ocean-card p-6 rounded-xl flex-1 hover:scale-105 hover:-translate-y-1 transition-all duration-500 cursor-pointer">
+                                <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Full Stack Developer</h3>
+                                <p class="text-ocean-aqua font-medium mb-2">Digital Innovations Ltd.</p>
+                                <p class="text-ocean-foam/70 mb-4 group-hover:text-ocean-foam/90 transition-colors">Developed and maintained web applications using Laravel, React, and modern web technologies. Implemented data analytics solutions.</p>
+                                <div class="flex items-center text-ocean-foam/50 text-sm">
+                                    <span class="mr-2">📍</span>
+                                    San Francisco, CA • 2020 - 2022
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-overlay mb-16">
+                <h2 class="text-4xl font-bold text-center text-gradient">Achievements</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg mx-auto">
+                        <span class="text-2xl">🏆</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ocean-foam mb-2 text-center group-hover:text-ocean-aqua transition-colors">AI Innovation Award</h3>
+                    <p class="text-ocean-aqua font-medium mb-2 text-center text-sm">Tech Excellence Summit 2023</p>
+                    <p class="text-ocean-foam/70 text-sm text-center group-hover:text-ocean-foam/90 transition-colors">Recognized for groundbreaking work in machine learning applications</p>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg mx-auto">
+                        <span class="text-2xl">🥇</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ocean-foam mb-2 text-center group-hover:text-ocean-aqua transition-colors">Best Full-Stack Project</h3>
+                    <p class="text-ocean-aqua font-medium mb-2 text-center text-sm">Dev Conference 2022</p>
+                    <p class="text-ocean-foam/70 text-sm text-center group-hover:text-ocean-foam/90 transition-colors">Awarded for exceptional web application architecture and user experience</p>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg mx-auto">
+                        <span class="text-2xl">⭐</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ocean-foam mb-2 text-center group-hover:text-ocean-aqua transition-colors">Open Source Contributor</h3>
+                    <p class="text-ocean-aqua font-medium mb-2 text-center text-sm">GitHub Community</p>
+                    <p class="text-ocean-foam/70 text-sm text-center group-hover:text-ocean-foam/90 transition-colors">Active contributor to major open-source projects with 500+ stars</p>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg mx-auto">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ocean-foam mb-2 text-center group-hover:text-ocean-aqua transition-colors">Hackathon Champion</h3>
+                    <p class="text-ocean-aqua font-medium mb-2 text-center text-sm">Ocean Tech Challenge 2023</p>
+                    <p class="text-ocean-foam/70 text-sm text-center group-hover:text-ocean-foam/90 transition-colors">First place winner for marine conservation technology solution</p>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg mx-auto">
+                        <span class="text-2xl">🎓</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ocean-foam mb-2 text-center group-hover:text-ocean-aqua transition-colors">Certified AI Specialist</h3>
+                    <p class="text-ocean-aqua font-medium mb-2 text-center text-sm">AI Institute</p>
+                    <p class="text-ocean-foam/70 text-sm text-center group-hover:text-ocean-foam/90 transition-colors">Advanced certification in artificial intelligence and deep learning</p>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg mx-auto">
+                        <span class="text-2xl">👥</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ocean-foam mb-2 text-center group-hover:text-ocean-aqua transition-colors">Team Leadership Excellence</h3>
+                    <p class="text-ocean-aqua font-medium mb-2 text-center text-sm">Corporate Recognition</p>
+                    <p class="text-ocean-foam/70 text-sm text-center group-hover:text-ocean-foam/90 transition-colors">Led cross-functional teams to deliver 15+ successful projects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-overlay mb-16">
+                <h2 class="text-4xl font-bold text-center text-gradient">Projects</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-full h-48 bg-gradient-to-br from-ocean-medium via-ocean-dark to-ocean-deeper rounded-lg mb-6 flex items-center justify-center group-hover:from-ocean-light group-hover:via-ocean-medium group-hover:to-ocean-dark transition-all duration-500 shadow-inner">
+                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-aqua to-ocean-current rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                            <span class="text-2xl">🤖</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-ocean-foam mb-3 group-hover:text-ocean-aqua transition-colors">AI-Powered Analytics Dashboard</h3>
+                    <p class="text-ocean-foam/70 mb-4 group-hover:text-ocean-foam/90 transition-colors">Machine learning dashboard for real-time data analysis and predictive insights.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Python</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">TensorFlow</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">React</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">D3.js</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button class="flex items-center text-ocean-aqua hover:text-ocean-current transition-all duration-300 hover:scale-110">
+                            <span class="mr-2">📂</span>
+                            Code
+                        </button>
+                        <button class="flex items-center text-ocean-aqua hover:text-ocean-current transition-all duration-300 hover:scale-110">
+                            <span class="mr-2">🔗</span>
+                            Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-full h-48 bg-gradient-to-br from-ocean-medium via-ocean-dark to-ocean-deeper rounded-lg mb-6 flex items-center justify-center group-hover:from-ocean-light group-hover:via-ocean-medium group-hover:to-ocean-dark transition-all duration-500 shadow-inner">
+                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-aqua to-ocean-current rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                            <span class="text-2xl">🌊</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-ocean-foam mb-3 group-hover:text-ocean-aqua transition-colors">Ocean Conservation Platform</h3>
+                    <p class="text-ocean-foam/70 mb-4 group-hover:text-ocean-foam/90 transition-colors">Web platform connecting marine biologists and conservationists worldwide.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Laravel</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Vue.js</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">PostgreSQL</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">WebGL</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button class="flex items-center text-ocean-aqua hover:text-ocean-current transition-all duration-300 hover:scale-110">
+                            <span class="mr-2">📂</span>
+                            Code
+                        </button>
+                        <button class="flex items-center text-ocean-aqua hover:text-ocean-current transition-all duration-300 hover:scale-110">
+                            <span class="mr-2">🔗</span>
+                            Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="ocean-card p-6 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
+                    <div class="w-full h-48 bg-gradient-to-br from-ocean-medium via-ocean-dark to-ocean-deeper rounded-lg mb-6 flex items-center justify-center group-hover:from-ocean-light group-hover:via-ocean-medium group-hover:to-ocean-dark transition-all duration-500 shadow-inner">
+                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-aqua to-ocean-current rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-xl">
+                            <span class="text-2xl">📱</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-ocean-foam mb-3 group-hover:text-ocean-aqua transition-colors">Smart IoT Monitoring System</h3>
+                    <p class="text-ocean-foam/70 mb-4 group-hover:text-ocean-foam/90 transition-colors">IoT solution for environmental monitoring with predictive maintenance.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Node.js</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">MongoDB</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">React</span>
+                        <span class="px-2 py-1 bg-gradient-to-r from-ocean-medium to-ocean-dark rounded text-xs text-ocean-aqua hover:from-ocean-aqua hover:to-ocean-current hover:text-ocean-deep transition-all duration-300 cursor-pointer hover:scale-110">Arduino</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button class="flex items-center text-ocean-aqua hover:text-ocean-current transition-all duration-300 hover:scale-110">
+                            <span class="mr-2">📂</span>
+                            Code
+                        </button>
+                        <button class="flex items-center text-ocean-aqua hover:text-ocean-current transition-all duration-300 hover:scale-110">
+                            <span class="mr-2">🔗</span>
+                            Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-overlay mb-16">
+                <h2 class="text-4xl font-bold text-center text-gradient">Contact Me</h2>
+            </div>
+            <div class="max-w-2xl mx-auto">
+                <div class="ocean-card p-8 rounded-xl text-center hover:scale-105 transition-all duration-500 group cursor-pointer">
+                    <p class="text-ocean-foam/90 mb-8 text-lg group-hover:text-ocean-foam transition-colors">
+                        Let's connect and explore opportunities to work together on innovative projects.
+                    </p>
+                    <div class="flex justify-center space-x-8 flex-wrap gap-4">
+                        <a href="mailto:timothy.nico@example.com" class="flex items-center space-x-3 text-ocean-aqua hover:text-ocean-current transition-all duration-300 group hover:scale-110 px-4 py-2 border border-ocean-aqua rounded-lg hover:bg-ocean-aqua hover:text-ocean-deep">
+                            <span class="text-xl">📧</span>
+                            <span class="font-medium">timothy.nico@example.com</span>
+                        </a>
+                        <a href="https://linkedin.com/in/timothynico" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-ocean-aqua hover:text-ocean-current transition-all duration-300 group hover:scale-110 px-4 py-2 border border-ocean-aqua rounded-lg hover:bg-ocean-aqua hover:text-ocean-deep">
+                            <span class="text-xl">💼</span>
+                            <span class="font-medium">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-ocean-light/30 relative z-20 bg-ocean-deep/50 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="text-overlay">
+                <p class="text-ocean-foam/60 hover:text-ocean-foam/80 transition-colors cursor-default">
+                    © 2024 Timothy Nico. Crafted with passion for technology and the ocean.
+                </p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Inisialisasi Three.js
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.position.z = 5;
-    
-        // Variabel untuk menyimpan model pesawat
-        let plane, cloud2, cloud;
-        let planeRotationX = 0; // Variabel rotasi untuk plane (pesawat)
-        const rotationSpeed = 0.01; // Kecepatan rotasi untuk plane
-        let rotationDirection = 1; // 1 untuk berputar searah jarum jam, -1 untuk berputar berlawanan
-    
-        // Load model pesawat
-        function loadGLBModel(filePath, scale, position, rotation, name) {
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-            filePath, // Path ke file GLB
-            (gltf) => {
-                const model = gltf.scene;
-                model.name = name; // Menyimpan nama model
-                model.traverse((node) => {
-                    if (node.isMesh) {
-                        node.material.metalness = 0.8;
-                        node.material.roughness = 0.2;
-                        node.castShadow = true;
-                    }
-                });
-                model.scale.set(scale.x, scale.y, scale.z); // Atur skala
-                model.position.set(position.x, position.y, position.z); // Atur posisi
-                model.rotation.set(rotation.x, rotation.y, rotation.z); // Atur rotasi
-                scene.add(model); // Menambahkan model ke scene
-                if (name === 'Plane') {
-                    plane = model; // Menyimpan model pesawat
-                } else if (name === 'Cloud') {
-                    cloud = model; // Menyimpan model awan
-                } else if (name === 'Cloud2'){
-                    cloud2 = model;
-                }
-            },
-            (xhr) => {
-                // Proses loading (opsional)
-                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-            },
-            (error) => {
-                console.error(`An error occurred while loading ${filePath}:`, error);
-            }
-        );
-    }
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        let isMenuOpen = false;
 
-    loadGLBModel('Assets/plane.glb', {x: 1.5, y: 1.5, z: 1.5}, {x: -window.innerWidth * 0.0035, y: window.innerHeight * 0.002, z: 0}, {x: 0, y: 3 * Math.PI / 2, z: 0}, 'Plane');
-    loadGLBModel('Assets/Cloud.glb', {x: 0.01, y: 0.01, z: 0.01}, {x: -window.innerWidth * 0.0035, y: -window.innerHeight * 0.005, z: -0.4}, {x: 0, y: 0, z: 0}, 'Cloud');
-    loadGLBModel('Assets/Cloud.glb', {x: 0.0075, y: 0.0075, z: 0.0075}, {x: window.innerWidth * 0.0035, y: -window.innerHeight * 0.004, z: -0.4}, {x: 0, y: Math.PI/24, z: 0}, 'Cloud2');
-    
-        // Tambahkan pencahayaan
-        const ambientLight = new THREE.AmbientLight(0xffffff, 2.5); // Warna putih, intensitas 0.5
-        scene.add(ambientLight);
-
-        const pointLight = new THREE.PointLight(0xf5de93, 1200, 0, 2); // Cahaya putih
-        pointLight.position.set(6, 5, 0); // Posisi cahaya
-        scene.add(pointLight);
-
-        // Tambahkan helper untuk debugging (opsional)
-        const lightHelper = new THREE.PointLightHelper(pointLight);
-        scene.add(lightHelper);
-    
-        // Animasi untuk cube dan kamera
-        function animate() {
-
-            // Rotasi plane (pesawat) seiring waktu dengan batasan -15 hingga 15 derajat
-            if (plane) {
-                planeRotationX += rotationSpeed * rotationDirection;
-                
-                // Batasan rotasi -15 hingga 15 derajat
-                if (planeRotationX > Math.PI / 6) { // 15 derajat dalam radian
-                    planeRotationX = Math.PI / 6; // Batasi rotasi pada 15 derajat
-                    rotationDirection = -1; // Ubah arah rotasi menjadi berlawanan
-                } else if (planeRotationX < -Math.PI / 6) { // -15 derajat dalam radian
-                    planeRotationX = -Math.PI / 6; // Batasi rotasi pada -15 derajat
-                    rotationDirection = 1; // Ubah arah rotasi menjadi searah jarum jam
-                }
-
-                plane.rotation.x = planeRotationX;
-            }
-
-            if (cloud){
-                cloud.rotation.y += planeRotationX * 0.01;
-            }
-
-            if (cloud2){
-                cloud2.rotation.z -= planeRotationX * 0.005;
-            }
-
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-    
-        // Respon terhadap perubahan ukuran layar
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+        hamburger.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            hamburger.classList.toggle('active', isMenuOpen);
+            mobileNav.classList.toggle('active', isMenuOpen);
         });
 
-        // Tambahkan interaksi scroll
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
+        function closeMobileNav() {
+            isMenuOpen = false;
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+        }
 
-            plane.position.x += scrollY * 0.001;
-            cloud.position.x -= scrollY * 0.001;
-            cloud2.position.x += scrollY * 0.001;
-            cloud2.position.y += scrollY * 0.001;
+        // Download Resume Function
+        function downloadResume() {
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = '#'; // Replace with actual resume file path
+            link.download = 'Timothy_Nico_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show a message since we don't have an actual file
+            alert('Resume download would start here. Please add your actual resume file.');
+        }
+
+        // Interactive Orca with diagonal swimming movement
+        const orca = document.getElementById('orca');
+        let mouseX = 0;
+        let mouseY = 0;
+        let scrollY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            updateOrca();
+        });
+
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+            updateOrca();
+        });
+
+        function updateOrca() {
+            // Diagonal movement from top-left to bottom-right based on scroll
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollProgress = scrollY / maxScroll;
+            
+            // Calculate diagonal position
+            const diagonalX = -200 + (window.innerWidth + 400) * scrollProgress;
+            const diagonalY = -100 + (window.innerHeight + 200) * scrollProgress;
+            
+            // Add mouse influence (reduced)
+            const mouseInfluenceX = (mouseX - window.innerWidth / 2) * 0.05;
+            const mouseInfluenceY = (mouseY - window.innerHeight / 2) * 0.05;
+            
+            const finalX = diagonalX + mouseInfluenceX;
+            const finalY = diagonalY + mouseInfluenceY;
+            
+            // Calculate tilt based on movement direction
+            const tilt = scrollProgress * 15; // Max 15 degrees tilt
+            const swimTilt = Math.sin(Date.now() * 0.001) * 5; // Swimming motion
+            
+            orca.style.transform = `translate(${finalX}px, ${finalY}px) rotate(${tilt + swimTilt}deg)`;
+        }
+
+        // Enhanced Parallax Sparkles that extend throughout the page
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            const sparkleCount = 200; // Increased for more coverage
+
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 200 + '%'; // Extended height for full page coverage
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                sparkle.style.animationDuration = (2 + Math.random() * 3) + 's';
+                sparklesContainer.appendChild(sparkle);
+            }
+        }
+
+        // Enhanced parallax effect for sparkles throughout the page
+        window.addEventListener('scroll', () => {
+            const sparkles = document.querySelectorAll('.sparkle');
+            const scrollTop = window.pageYOffset;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollProgress = scrollTop / maxScroll;
+
+            sparkles.forEach((sparkle, index) => {
+                const speed = (index % 10 + 1) * 0.2; // More varied speed
+                const yPos = -(scrollTop * speed);
+                const xPos = Math.sin(scrollTop * 0.002 + index) * 30; // Enhanced horizontal movement
+                const rotation = scrollProgress * 360 * (index % 3 + 1); // Rotation based on scroll
+                sparkle.style.transform = `translateY(${yPos}px) translateX(${xPos}px) rotate(${rotation}deg)`;
+                
+                // Dynamic opacity based on scroll position
+                const opacity = 0.3 + Math.sin(scrollTop * 0.01 + index) * 0.4;
+                sparkle.style.opacity = Math.max(0.1, Math.min(0.8, opacity));
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize
+        createSparkles();
+        updateOrca();
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards for animation
+        document.querySelectorAll('.ocean-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Observe text overlays for animation
+        document.querySelectorAll('.text-overlay').forEach(overlay => {
+            overlay.style.opacity = '0';
+            overlay.style.transform = 'translateY(20px)';
+            overlay.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(overlay);
         });
     </script>
 </body>
