@@ -64,7 +64,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-ocean-deep/90 backdrop-blur-xl border-b border-ocean-light/30 shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-ocean-deep/30 backdrop-blur-xl border-b border-ocean-light/30 shadow-lg">
         <div class="max-w-6xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="text-xl font-bold text-gradient animate-pulse">Timothy Nico</div>
@@ -122,19 +122,21 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative z-20 px-6">
-        <div class="text-center text-overlay">
-            <div class="w-48 h-48 mx-auto mb-8 rounded-full bg-gradient-to-br from-ocean-aqua via-ocean-current to-ocean-light p-1 animate-float hover:scale-110 transition-transform duration-500 cursor-pointer shadow-2xl">
+        <div class="text-center text-overlay backdrop-blur-md bg-ocean-deep/10">
+            <div class="w-64 h-64 mx-auto mb-8 rounded-full bg-gradient-to-br from-ocean-aqua via-ocean-current to-ocean-light p-1 animate-float hover:scale-110 transition-transform duration-500 cursor-pointer shadow-2xl">
                 <div class="w-full h-full rounded-full bg-gradient-to-br from-ocean-darker to-ocean-deep flex items-center justify-center border-2 border-ocean-aqua/30">
-                    <div class="w-40 h-40 rounded-full bg-gradient-to-br from-ocean-medium to-ocean-dark flex items-center justify-center text-6xl text-ocean-foam font-bold shadow-inner">
-                        TN
-                    </div>
+                    <img 
+                        src="/public/images/foto profil.jpeg" 
+                        alt="Foto Profil" 
+                        class="w-56 h-56 rounded-full object-cover shadow-inner"
+                    >
                 </div>
             </div>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient animate-pulse">
                 Hi, I'm Timothy Nico
             </h1>
             <p class="text-xl md:text-2xl text-ocean-foam/90 mb-8">
-                I'm an AI & Web Enthusiast
+                an AI & Web Development Enthusiast
             </p>
             <div class="flex justify-center space-x-4 flex-wrap gap-4">
                 <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-ocean-aqua to-ocean-current text-ocean-deep font-semibold rounded-lg hover:from-ocean-current hover:to-ocean-aqua transition-all duration-300 hover:scale-105 transform shadow-lg">
@@ -150,31 +152,39 @@
     <!-- Education Section -->
     <section id="education" class="py-20 px-6 relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-overlay mb-16">
+            <div class="text-overlay backdrop-blur-md bg-ocean-deep/10 mb-16">
                 <h2 class="text-4xl font-bold text-center text-gradient">Education</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <div class="ocean-card p-8 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
                     <div class="flex items-start space-x-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-medium to-ocean-light rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-lg">
-                            <span class="text-3xl">🎓</span>
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img 
+                                src="public/images/logo ukp.png" 
+                                alt="Ikon" 
+                                class="w-full h-full object-cover bg-white"
+                            >
                         </div>
                         <div class="flex-1">
-                            <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Master of Computer Science</h3>
-                            <p class="text-ocean-aqua font-medium mb-2">University of Technology</p>
-                            <p class="text-ocean-foam/70 group-hover:text-ocean-foam/90 transition-colors">Specialized in Artificial Intelligence and Machine Learning with focus on deep learning applications.</p>
+                            <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Petra Christian University (2022-present)</h3>
+                            <p class="text-ocean-aqua font-medium mb-2">Informatics</p>
+                            <p class="text-ocean-foam/70 group-hover:text-ocean-foam/90 transition-colors">Relevant courses: Applied AI, Deep Learning, Associate Data Scientist.</p>
                         </div>
                     </div>
                 </div>
                 <div class="ocean-card p-8 rounded-xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 group cursor-pointer">
                     <div class="flex items-start space-x-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-ocean-medium to-ocean-current rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 shadow-lg">
-                            <span class="text-3xl">📚</span>
+                        <div class="w-16 h-16 rounded-full overflow-hidden">
+                            <img 
+                                src="public/images/ntu logo.png" 
+                                alt="Ikon" 
+                                class="w-full h-full object-cover"
+                            >
                         </div>
                         <div class="flex-1">
-                            <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">Bachelor of Software Engineering</h3>
-                            <p class="text-ocean-aqua font-medium mb-2">Tech Institute</p>
-                            <p class="text-ocean-foam/70 group-hover:text-ocean-foam/90 transition-colors">Foundation in software development, web technologies, and database systems.</p>
+                            <h3 class="text-xl font-semibold text-ocean-foam mb-2 group-hover:text-ocean-aqua transition-colors">National Taiwan University (2024)</h3>
+                            <p class="text-ocean-aqua font-medium mb-2">Visiting student</p>
+                            <p class="text-ocean-foam/70 group-hover:text-ocean-foam/90 transition-colors">Granted a fully-funded scolarship from IISMA 2024 program.</p>
                         </div>
                     </div>
                 </div>
@@ -185,7 +195,7 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 px-6 relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-overlay mb-16">
+            <div class="text-overlay backdrop-blur-md bg-ocean-deep/10 mb-16">
                 <h2 class="text-4xl font-bold text-center text-gradient">Skills</h2>
             </div>
             
@@ -250,7 +260,7 @@
     <!-- Experience Section -->
     <section id="experience" class="py-20 px-6 relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-overlay mb-16">
+            <div class="text-overlay backdrop-blur-md bg-ocean-deep/10 mb-16">
                 <h2 class="text-4xl font-bold text-center text-gradient">Experience</h2>
             </div>
             <div class="max-w-4xl mx-auto">
@@ -296,7 +306,7 @@
     <!-- Achievements Section -->
     <section id="achievements" class="py-20 px-6 relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-overlay mb-16">
+            <div class="text-overlay backdrop-blur-md bg-ocean-deep/10 mb-16">
                 <h2 class="text-4xl font-bold text-center text-gradient">Achievements</h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -355,7 +365,7 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20 px-6 relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-overlay mb-16">
+            <div class="text-overlay backdrop-blur-md bg-ocean-deep/10 mb-16">
                 <h2 class="text-4xl font-bold text-center text-gradient">Projects</h2>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -441,9 +451,9 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 relative z-20">
         <div class="max-w-6xl mx-auto">
-            <div class="text-overlay mb-16">
-                <h2 class="text-4xl font-bold text-center text-gradient">Contact Me</h2>
-            </div>
+        <div class="text-overlay mb-16 backdrop-blur-md bg-ocean-deep/10 rounded-xl p-6">
+            <h2 class="text-4xl font-bold text-center text-gradient">Contact Me</h2>
+        </div>
             <div class="max-w-2xl mx-auto">
                 <div class="ocean-card p-8 rounded-xl text-center hover:scale-105 transition-all duration-500 group cursor-pointer">
                     <p class="text-ocean-foam/90 mb-8 text-lg group-hover:text-ocean-foam transition-colors">
@@ -467,11 +477,9 @@
     <!-- Footer -->
     <footer class="py-8 px-6 border-t border-ocean-light/30 relative z-20 bg-ocean-deep/50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto text-center">
-            <div class="text-overlay">
                 <p class="text-ocean-foam/60 hover:text-ocean-foam/80 transition-colors cursor-default">
-                    © 2024 Timothy Nico. Crafted with passion for technology and the ocean.
+                    © 2025 Timothy Nico.
                 </p>
-            </div>
         </div>
     </footer>
 
@@ -542,7 +550,7 @@
             
             // Calculate tilt based on movement direction
             const tilt = scrollProgress * 15; // Max 15 degrees tilt
-            const swimTilt = Math.sin(Date.now() * 0.001) * 5; // Swimming motion
+            const swimTilt = Math.sin(Date.now() * 0.01) * 5; // Swimming motion
             
             orca.style.transform = `translate(${finalX}px, ${finalY}px) rotate(${tilt + swimTilt}deg)`;
         }
@@ -550,13 +558,13 @@
         // Enhanced Parallax Sparkles that extend throughout the page
         function createSparkles() {
             const sparklesContainer = document.getElementById('sparkles');
-            const sparkleCount = 200; // Increased for more coverage
+            const sparkleCount = 1000; // Increased for more coverage
 
             for (let i = 0; i < sparkleCount; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = Math.random() * 100 + '%';
-                sparkle.style.top = Math.random() * 200 + '%'; // Extended height for full page coverage
+                sparkle.style.top = Math.random() * 1000 + '%'; // Extended height for full page coverage
                 sparkle.style.animationDelay = Math.random() * 3 + 's';
                 sparkle.style.animationDuration = (2 + Math.random() * 3) + 's';
                 sparklesContainer.appendChild(sparkle);
@@ -578,8 +586,8 @@
                 sparkle.style.transform = `translateY(${yPos}px) translateX(${xPos}px) rotate(${rotation}deg)`;
                 
                 // Dynamic opacity based on scroll position
-                const opacity = 0.3 + Math.sin(scrollTop * 0.01 + index) * 0.4;
-                sparkle.style.opacity = Math.max(0.1, Math.min(0.8, opacity));
+                // const opacity = 0.3 + Math.sin(scrollTop * 0.01 + index) * 0.4;
+                // sparkle.style.opacity = Math.max(0.1, Math.min(0.8, opacity));
             });
         });
 
